@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">STPortal</string>
+    <string name="app_name">ST Portal</string>
+    <string name="scan">Scan</string>
 </resources>
