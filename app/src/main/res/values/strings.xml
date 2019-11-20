@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ST Portal</string>
     <string name="scan">Scan</string>
+    <string name="scan_barcode">Scan Barcode</string>
 </resources>

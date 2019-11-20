@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ScanActivity extends AppCompatActivity {
+public class ScanActivity extends AppCompatActivity implements View.OnClickListener {
     private Button scanBtn;
     private TextView formatText, contentText;
 
@@ -35,7 +35,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanningResult != null) {
             String scanContent = scanningResult.getContents();
-            String scanFormat - scanningResult.getFormatName();
+            String scanFormat = scanningResult.getFormatName();
             formatText.setText("FORMAT: " + scanFormat);
             contentText.setText("CONTENT: " + scanContent);
         } else {
