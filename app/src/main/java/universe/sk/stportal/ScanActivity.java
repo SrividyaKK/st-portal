@@ -43,4 +43,9 @@ public void onActivityResult(int requestCode, int resultCode, Intent intent) {
             toast.show();
         }
     }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
 }

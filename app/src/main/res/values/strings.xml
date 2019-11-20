@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">ST Portal</string>
     <string name="scan">Scan</string>
+    <string name="title_activity_student_reg">studentRegActivity</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_remember_password">Don\'t Remember password?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="title_activity_signup">SignupActivity</string>
     <string name="scan_barcode">Scan Barcode</string>
 </resources>
