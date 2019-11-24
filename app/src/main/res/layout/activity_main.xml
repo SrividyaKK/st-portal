@@ -8,6 +8,7 @@
     android:background="@drawable/bg_login"
     tools:context=".MainActivity">
 
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left"
         android:layout_width="wrap_content"
@@ -97,6 +98,12 @@
         android:layout_height="wrap_content"
         android:text="@string/don_t_have_an_account"
         android:textColor="@color/login_form_details"
+              
+    <Button
+        android:id="@+id/btnScanBarcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scan_barcode"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
