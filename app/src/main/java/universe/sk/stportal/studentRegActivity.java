@@ -21,7 +21,7 @@ public class studentRegActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        CircleImageView circleImageView = (CircleImageView) findViewById(R.id.profile_image);
+        CircleImageView circleImageView = findViewById(R.id.profile_image);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
