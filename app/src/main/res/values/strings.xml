@@ -9,5 +9,9 @@
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="sign_in">Sign in</string>
     <string name="title_activity_signup">SignupActivity</string>
+<<<<<<< HEAD
+    <string name="verify">Verify</string>
+=======
     <string name="scan_barcode">Scan Barcode</string>
+>>>>>>> f481c7319273d5b2323f7c7672fbb5ca11b4c0bb
 </resources>
