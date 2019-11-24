@@ -27,12 +27,12 @@
         android:id="@+id/username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:inputType="textEmailAddress"
+        android:layout_marginTop="10dp"
         android:background="@drawable/et_bg"
         android:hint="@string/email_address"
-        android:textColorHint="@color/login_form_details"
+        android:inputType="textEmailAddress"
         android:padding="16dp"
+        android:textColorHint="@color/login_form_details"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintHorizontal_bias="0.0"
@@ -79,6 +79,7 @@
         android:layout_marginTop="16dp"
         />
 
+
     <View
         android:id="@+id/footer_line"
         android:layout_width="0dp"
@@ -108,16 +109,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/footer_line" />
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/sign_in"
-        android:textColor="@color/login_form_details"
-        app:layout_constraintBottom_toTopOf="@id/footer_line"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left" />
+<!--    <TextView-->
+<!--        android:id="@+id/tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:text="@string/sign_in"-->
+<!--        android:textColor="@color/login_form_details"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/footer_line"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline_right"-->
+<!--        app:layout_constraintStart_toStartOf="@id/guideline_left" />-->
 
     <View
         android:id="@+id/line1"
@@ -126,7 +127,7 @@
         android:background="@color/login_form_details_medium"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/forgot_password"
-        app:layout_constraintBottom_toTopOf="@id/tv"
+        app:layout_constraintBottom_toTopOf="@id/custom_btn"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintEnd_toStartOf="@+id/or"/>
 
@@ -151,4 +152,20 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toEndOf="@id/or"
         app:layout_constraintTop_toTopOf="@id/or"/>
+
+    <Button
+        android:id="@+id/custom_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_btn"
+        android:text="@string/verify"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_details_medium"
+        app:layout_constraintBottom_toTopOf="@+id/footer_line"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/or" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

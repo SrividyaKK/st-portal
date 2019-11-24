@@ -7,20 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    Button btnScanbarcode;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Button verify;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnScanbarcode = findViewById(R.id.btnScanBarcode);
 
-        btnScanbarcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ScanActivity.class));
-            }
-        });
+
+        verify = findViewById(R.id.custom_btn);
+        verify.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.custom_btn)
+        {
+            Intent intent = new Intent(this,ScanActivity.class);
+            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+            scanIntegrator.initiateScan();
+            //startActivity(intent);
+        }
     }
 }
