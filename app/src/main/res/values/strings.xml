@@ -38,5 +38,5 @@
     <string name="hint_bus_complaint_count">Complaint Count</string>
     <string name="hint_complaint_msg">Complaint Message</string>
     <string name="complaints">Complaints</string>
-
+    <string name="base_api_url">https://github.com</string>
 </resources>
