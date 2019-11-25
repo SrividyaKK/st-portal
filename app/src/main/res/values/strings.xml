@@ -21,7 +21,8 @@
     <string name="title_activity_rto_application">RTO_applicationActivity</string>
 
     <string name="success">Success!</string>
-    <string name="failure">Oops!</string>
+    <string name="hint_success_failure">Success/Failure</string>
+    <string name="failure">Oops! You have not registered for an ST card</string>
 
     <string name="hint_name">Name</string>
     <string name="admno">Admission No.</string>
