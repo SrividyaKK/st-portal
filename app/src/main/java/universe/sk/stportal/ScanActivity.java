@@ -35,27 +35,28 @@ public class ScanActivity extends AppCompatActivity implements View.OnClickListe
             scanIntegrator.initiateScan();
         }
     }
-public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-    super.onActivityResult(requestCode, resultCode, intent);
-    IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-    if (scanningResult != null) {
-        String scanContent = scanningResult.getContents();
-        int scannedId = Integer.parseInt(scanContent);
-//        String scanFormat = scanningResult.getFormatName();
-//        formatText.setText("FORMAT: " + scanFormat);
-        contentText.setText("ID: " + scannedId);
-        if (scannedId == idInDB) {
-            scanSuccess.setText(R.string.success);
-            scanSuccess.setTextColor(getResources().getColor(R.color.green));
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanningResult != null) {
+            String scanContent = scanningResult.getContents();
+            int scannedId = Integer.parseInt(scanContent);
+    //        String scanFormat = scanningResult.getFormatName();
+    //        formatText.setText("FORMAT: " + scanFormat);
+            contentText.setText("ID: " + scannedId);
+            if (scannedId == idInDB) {
+                scanSuccess.setText(R.string.success);
+                scanSuccess.setTextColor(getResources().getColor(R.color.green));
+            } else {
+                scanSuccess.setText(R.string.failure);
+                scanSuccess.setTextColor(getResources().getColor(R.color.red));
+            }
         } else {
-            scanSuccess.setText(R.string.failure);
-            scanSuccess.setTextColor(getResources().getColor(R.color.red));
+            Toast toast = Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT);
+            toast.show();
         }
-    } else {
-        Toast toast = Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT);
-        toast.show();
     }
-}
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
