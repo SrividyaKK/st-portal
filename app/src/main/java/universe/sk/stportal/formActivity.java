@@ -141,6 +141,32 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
 
     @Override
     public void onClick(View view) {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("supply", s);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Runnable runnable = () -> {
+            OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
+            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
+            Request request = new Request.Builder()
+                    .url(getResources().getString(R.string.base_api_url) + "/api/camps/c/" + id + "/stock")
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Token " + GlobalStore.token)
+                    .post(requestBody)
+                    .build();
+            try {
+                Response response = client.newCall(request).execute();
+                JSONObject res = new JSONObject(response.body().string());
 
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
+        };
+        Thread async = new Thread(runnable);
+        async.start();
+        supplies.add(s);
+        listAdapter.notifyItemInserted(supplies.size());
     }
 }
