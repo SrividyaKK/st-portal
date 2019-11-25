@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="20dp"
     android:orientation="vertical"
+    android:background="@drawable/bg_login"
     tools:context=".ViewComplaintActivity">
     <TextView
         android:layout_width="match_parent"
@@ -16,11 +14,16 @@
         android:text="@string/complaints"
         android:gravity="center"
         android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/black"
+        android:textColor="@color/purple_complement"
         />
     <ListView
         android:id="@+id/lvCompList"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </ListView>

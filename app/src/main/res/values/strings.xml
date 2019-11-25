@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ST Portal</string>
     <string name="scan">Scan</string>
+    <string name="scan_activity">Scan Activity</string>
     <string name="title_activity_student_reg">studentRegActivity</string>
     <string name="email_address">Email address</string>
     <string name="password">Password</string>
@@ -20,7 +21,8 @@
     <string name="title_activity_rto_application">RTO_applicationActivity</string>
 
     <string name="success">Success!</string>
-    <string name="failure">Oops!</string>
+    <string name="hint_success_failure">Success/Failure</string>
+    <string name="failure">Oops! You have not registered for an ST card</string>
 
     <string name="hint_name">Name</string>
     <string name="admno">Admission No.</string>
@@ -39,4 +41,5 @@
     <string name="hint_complaint_msg">Complaint Message</string>
     <string name="complaints">Complaints</string>
     <string name="base_api_url">https://github.com</string>
+    <string name="hint_id">ID of student</string>
 </resources>

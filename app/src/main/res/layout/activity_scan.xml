@@ -5,13 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
     tools:context=".ScanActivity">
 
     <Button android:id="@+id/scan_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="@string/scan"
         android:textAllCaps="false"
         android:textColor="@color/login_form_details_medium"
@@ -23,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/scan_button" />
     <TextView
@@ -30,6 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
+        android:hint="@string/hint_id"
+        android:textColorHint="@color/purple_complement"
+        android:textColor="@color/purple_complement"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/scan_format" />
     <TextView
@@ -37,6 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="@string/hint_success_failure"
         android:layout_below="@+id/scan_content" />
 
 

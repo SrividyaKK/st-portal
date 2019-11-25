@@ -15,11 +15,13 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+
 public class IndividualApplicationActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tvApplicantName, tvApplicantDOB, tvApplicantInstitution, tvApplicantInstLoc, tvApplicantCourse, tvApplicantYearOfGrad, tvApplicantAddress,tvApplicantRoutes;
     private Button btnVerify;
 
-    private String idToRetrieve;
+    private String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,47 +38,53 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
 
         btnVerify = findViewById(R.id.btn_verify);
 
+        Bundle bundle = getIntent().getExtras(); // get the bundle
+        String id = bundle.getString("id");
+        String name = bundle.getString("name");
+
         btnVerify.setOnClickListener(this);
 
         // TODO: FETCH FROM DB
-        idToRetrieve = "800217";
         JSONObject json = new JSONObject();
         try {
-            json.put("admno", idToRetrieve);
+            json.put("admno", id);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         Runnable runnable = () -> {
             OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
-            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
             Request request = new Request.Builder()
-                    .url(getResources().getString(R.string.base_api_url) + "/api/camps/c/" + idToRetrieve + "/stock")
+                    .url(getResources().getString(R.string.base_api_url) + "/api/camps/c/" + id)
                     .header("Content-Type", "application/json")
-                    .post(requestBody)
                     .build();
 
-//            try {
-//                Response response = client.newCall(request).execute();
-////                JSONObject res = new
-//            }t
+            try {
+                Response response = client.newCall(request).execute();
+                JSONObject res = new JSONObject(response.body().string());
+
+                tvApplicantName.setText(res.getString("name"));
+                tvApplicantDOB.setText(res.getString("date"));
+                tvApplicantInstitution.setText(res.getString("institution"));
+                tvApplicantInstLoc.setText(res.getString("inst_loc"));
+                tvApplicantCourse.setText(res.getString("course"));
+                tvApplicantYearOfGrad.setText(res.getString("year"));
+                tvApplicantAddress.setText(res.getString("address"));
+                tvApplicantRoutes.setText(res.getString("routes"));
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
         };
 
-        tvApplicantName.setText("");
-        tvApplicantDOB.setText("");
-        tvApplicantInstitution.setText("");
-        tvApplicantInstLoc.setText("");
-        tvApplicantCourse.setText("");
-        tvApplicantYearOfGrad.setText("");
-        tvApplicantAddress.setText("");
-        tvApplicantRoutes.setText("");
+        Thread async = new Thread(runnable);
+        async.start();
 
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_verify) {
-            // TODO: Approve the details
+            // TODO: Approve the details - send post request
         }
     }
 }
