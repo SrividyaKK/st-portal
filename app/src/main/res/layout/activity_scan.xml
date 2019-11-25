@@ -15,7 +15,7 @@
         android:text="@string/scan"
         android:textAllCaps="false"
         android:textColor="@color/login_form_details_medium"
-        android:background="@drawable/btn_bg"
+        android:background="@drawable/bg_login"
         />
 
     <TextView
@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/scan_button" />
     <TextView
@@ -30,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
+        android:hint="@string/hint_id"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/scan_format" />
     <TextView
@@ -37,6 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="@string/success"
         android:layout_below="@+id/scan_content" />
 
 

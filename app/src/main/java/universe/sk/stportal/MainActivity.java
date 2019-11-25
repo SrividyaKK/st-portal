@@ -48,23 +48,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.custom_btn)
+        if (view.getId() == R.id.custom_btn)
         {
             Intent intent = new Intent(this,ScanActivity.class);
+//            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+//            scanIntegrator.initiateScan();
             startActivity(intent);
-            Intent intent = new Intent(this, ScanActivity.class);
-            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-            scanIntegrator.initiateScan();
             //startActivity(intent);
         }
 
-        if(view.getId() == R.id.signUp)
+        if (view.getId() == R.id.signUp)
         {
             Intent intent = new Intent(this,studentRegActivity.class);
             startActivity(intent);
         }
 
-        if(view.getId() == R.id.btn_login)
+        if (view.getId() == R.id.btn_login)
         {
             Intent intent  = new Intent(this, formActivity.class);
             startActivity(intent);

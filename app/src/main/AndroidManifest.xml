@@ -37,7 +37,10 @@
             android:label="@string/title_activity_student_reg"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ScanActivity" />
+        <activity android:name=".ScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/scan_activity"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
