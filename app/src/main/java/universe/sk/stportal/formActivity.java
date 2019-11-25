@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -165,6 +166,7 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
     @Override
     public void onClick(View view) {
         //function in the activity that corresponds to the layout button
+
         String username, inst, location;
         username = name.getText().toString();
         inst = educational_inst.getText().toString();
@@ -176,37 +178,39 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
         String addr = curr_addr.getText().toString();
 
         JSONObject json = new JSONObject();
-        try {
-            json.put("username", username);
-            json.put("institution",inst);
-            json.put("loc", location);
-            json.put("email", email_id);
-            json.put("route", route);
-            json.put("course", coursename);
-            json.put("year", year);
-            json.put("addr", addr);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Runnable runnable = () -> {
-            OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
-            RequestBody requestBody;
-            requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
-            Request request = new Request.Builder()
-                    .url(getResources().getString(R.string.base_api_url) + "http://priyanga-yfho.localhost.run/")//todo
-                    .header("Content-Type", "application/json")
-                    .post(requestBody)
-                    .build();
+        if(view.getId() == R.id.submit) {
+            //Toast.makeText(formActivity.this, "Reached here!", Toast.LENGTH_SHORT).show();
             try {
-                Response response = client.newCall(request).execute();
-                JSONObject res = new JSONObject(response.body().string());
-
-            } catch (IOException | JSONException e) {
+                json.put("username", username);
+                json.put("institution", inst);
+                json.put("loc", location);
+                json.put("email", email_id);
+                json.put("route", route);
+                json.put("course", coursename);
+                json.put("year", year);
+                json.put("addr", addr);
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
-        };
-        Thread async = new Thread(runnable);
-        async.start();
+            Runnable runnable = () -> {
+                OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
+                RequestBody requestBody;
+                requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
+                Request request = new Request.Builder()
+                        .url(getResources().getString(R.string.base_api_url) + "http://priyanga-yfho.localhost.run/")//todo
+                        .header("Content-Type", "application/json")
+                        .post(requestBody)
+                        .build();
+                try {
+                    Response response = client.newCall(request).execute();
+                    JSONObject res = new JSONObject(response.body().string());
+
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+            };
+            Thread async = new Thread(runnable);
+            async.start();
 //        supplies.add(username);
 //        supplies.add("supply",inst);
 //        supplies.add("supply", location);
@@ -215,6 +219,7 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
 //        supplies.add("supply", coursename);
 //        supplies.add("supply", year);
 //        supplies.add("supply", addr);
-        //listAdapter.notifyItemInserted(supplies.size());
+            //listAdapter.notifyItemInserted(supplies.size());
+        }
     }
 }
