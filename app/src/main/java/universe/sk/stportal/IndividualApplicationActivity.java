@@ -15,6 +15,8 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+
 public class IndividualApplicationActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tvApplicantName, tvApplicantDOB, tvApplicantInstitution, tvApplicantInstLoc, tvApplicantCourse, tvApplicantYearOfGrad, tvApplicantAddress,tvApplicantRoutes;
     private Button btnVerify;
@@ -56,11 +58,16 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
                     .post(requestBody)
                     .build();
 
-//            try {
-//                Response response = client.newCall(request).execute();
-////                JSONObject res = new
-//            }t
+            try {
+                Response response = client.newCall(request).execute();
+                JSONObject res = new JSONObject(response.body().string());
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
         };
+
+        Thread async = new Thread(runnable);
+        async.start();
 
         tvApplicantName.setText("");
         tvApplicantDOB.setText("");
