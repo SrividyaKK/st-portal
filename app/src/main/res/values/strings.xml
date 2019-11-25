@@ -15,6 +15,7 @@
     <string name="failure">Oops!</string>
 
     <string name="hint_name">Name</string>
+    <string name="admno">Admission No.</string>
     <string name="email">Email</string>
     <string name="dob">DOB</string>
     <string name="institution_name">Institution name</string>
