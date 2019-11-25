@@ -18,4 +18,25 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_rto_application">RTO_applicationActivity</string>
+
+    <string name="success">Success!</string>
+    <string name="failure">Oops!</string>
+
+    <string name="hint_name">Name</string>
+    <string name="admno">Admission No.</string>
+    <string name="email">Email</string>
+    <string name="dob">DOB</string>
+    <string name="institution_name">Institution name</string>
+    <string name="institution_location">Location of institution</string>
+    <string name="course">Course</string>
+    <string name="current_address">Current Address</string>
+    <string name="year_of_grad">Year of Graduation</string>
+    <string name="tv_hint_name">Name of Student</string>
+    <string name="routes">Routes</string>
+
+    <string name="hint_bus_num">Bus number</string>
+    <string name="hint_bus_complaint_count">Complaint Count</string>
+    <string name="hint_complaint_msg">Complaint Message</string>
+    <string name="complaints">Complaints</string>
+
 </resources>

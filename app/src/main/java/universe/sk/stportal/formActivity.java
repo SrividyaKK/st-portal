@@ -35,10 +35,10 @@ import java.util.List;
 
 import pub.devrel.easypermissions.EasyPermissions;
 
-public class formActivity extends FragmentActivity implements DatePickerDialog.OnDateSetListener , EasyPermissions.PermissionCallbacks{
+public class formActivity extends FragmentActivity implements DatePickerDialog.OnDateSetListener, EasyPermissions.PermissionCallbacks, View.OnClickListener {
 
     //File picker
-    private Button btnChooseFile;
+    private Button btnChooseFile, submit;
     private TextView tvItemPath;
     Intent myFileIntent;
 
@@ -62,7 +62,7 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
         btnChooseFile = (Button)findViewById(R.id.btn_choose_file);
         tvItemPath  = (TextView)findViewById(R.id.tv_file_path);
         ivGallery = (ImageView)findViewById(R.id.imageview);
-
+        submit = (Button)findViewById(R.id.submit);
         final TextView date = (TextView) findViewById(R.id.DOB);
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +88,8 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
                 openGallery();
             }
         });
+
+        submit.setOnClickListener(this);
     }
 
     @Override
@@ -104,17 +106,19 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
     //File picker
     @Override
     public void onActivityResult(int requestcode, int resultCode, @Nullable Intent data) {
-        switch (requestcode)
-        {
-            case 10:    if(resultCode == RESULT_OK){
-                            String path = data.getData().getPath();
-                            tvItemPath.setText(path);
-                        }
-                        break;
-            case PICK_IMAGE: if(resultCode == RESULT_OK){
-                                imageUri = data.getData();
-                                ivGallery.setImageURI(imageUri);
-            }
+        super.onActivityResult(requestcode, resultCode, data);
+        switch (requestcode) {
+            case 10:
+                if (resultCode == RESULT_OK) {
+                    String path = data.getData().getPath();
+                    tvItemPath.setText(path);
+                }
+                break;
+            case PICK_IMAGE:
+                if (resultCode == RESULT_OK) {
+                    imageUri = data.getData();
+                    ivGallery.setImageURI(imageUri);
+                }
         }
     }
 
@@ -133,5 +137,10 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
     {
         Intent gallery = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery,PICK_IMAGE);
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

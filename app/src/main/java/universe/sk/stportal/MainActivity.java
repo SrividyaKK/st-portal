@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view.getId() == R.id.custom_btn)
         {
             Intent intent = new Intent(this,ScanActivity.class);
+            startActivity(intent);
             IntentIntegrator scanIntegrator = new IntentIntegrator(this);
             scanIntegrator.initiateScan();
             //startActivity(intent);
