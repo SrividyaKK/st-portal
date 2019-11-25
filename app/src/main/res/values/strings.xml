@@ -24,4 +24,9 @@
     <string name="year_of_grad">Year of Graduation</string>
     <string name="tv_hint_name">Name of Student</string>
     <string name="routes">Routes</string>
+
+    <string name="hint_bus_num">Bus number</string>
+    <string name="hint_bus_complaint_count">Complaint Count</string>
+    <string name="hint_complaint_msg">Complaint Message</string>
+    <string name="complaints">Complaints</string>
 </resources>
