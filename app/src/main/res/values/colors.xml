@@ -5,7 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="dark_blue">#3023AE</color>
     <color name="purple">#c86dd7</color>
+    <color name="purple_complement">#d7d06d</color>
     <color name="dark_purple">#301934</color>
+    <color name="triad_green">#7bd76d</color>
     <color name="green">#008b00</color>
     <color name="red">#ff0000</color>
     <color name="black">#000000</color>

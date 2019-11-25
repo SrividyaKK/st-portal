@@ -47,7 +47,7 @@ public class ScanActivity extends AppCompatActivity implements View.OnClickListe
             contentText.setText("ID: " + scannedId);
             if (scannedId == idInDB) {
                 scanSuccess.setText(R.string.success);
-                scanSuccess.setTextColor(getResources().getColor(R.color.green));
+                scanSuccess.setTextColor(getResources().getColor(R.color.triad_green));
             } else {
                 scanSuccess.setText(R.string.failure);
                 scanSuccess.setTextColor(getResources().getColor(R.color.red));
