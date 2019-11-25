@@ -5,8 +5,10 @@
     <color name="colorAccent">#D81B60</color>
     <color name="dark_blue">#3023AE</color>
     <color name="purple">#c86dd7</color>
+    <color name="dark_purple">#301934</color>
     <color name="green">#008b00</color>
     <color name="red">ff0000</color>
+    <color name="black">#000000</color>
 
     <color name="login_form_details">#ccffffff</color>
     <color name="login_form_details_light">#1affffff</color>

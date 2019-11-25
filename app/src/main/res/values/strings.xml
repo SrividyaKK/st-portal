@@ -13,4 +13,9 @@
     <string name="scan_barcode">Scan Barcode</string>
     <string name="success">Success!</string>
     <string name="failure">Oops!</string>
+
+    <string name="hint_name">Name</string>
+    <string name="email">Email</string>
+    <string name="dob">DOB</string>
+    <string name="institution_name">Institution name</string>
 </resources>
