@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        String email_id = email.getText().toString();
+        String passwd = password.getText().toString();
         if (view.getId() == R.id.custom_btn)
         {
             Intent intent = new Intent(this,ScanActivity.class);
@@ -64,8 +66,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (view.getId() == R.id.btn_login)
         {
-            Intent intent  = new Intent(this, formActivity.class);
-            startActivity(intent);
+            Intent intent;
+            if(email_id.equals("rtokochi@gmail.com") && passwd.equals("123"))//login by rto
+            {
+                 intent = new Intent(this, ApplicationListActivity.class);
+                 startActivity(intent);
+            }
+            else //login by students
+                {
+                intent = new Intent(this, formActivity.class);
+                startActivity(intent);
+            }
         }
 
     }
