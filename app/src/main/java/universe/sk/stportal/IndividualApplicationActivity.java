@@ -45,7 +45,6 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
         btnVerify.setOnClickListener(this);
 
         // TODO: FETCH FROM DB
-//        idToRetrieve = id;
         JSONObject json = new JSONObject();
         try {
             json.put("admno", id);
@@ -55,11 +54,9 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
 
         Runnable runnable = () -> {
             OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
-//            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
             Request request = new Request.Builder()
                     .url(getResources().getString(R.string.base_api_url) + "/api/camps/c/" + id)
                     .header("Content-Type", "application/json")
-                    .get()
                     .build();
 
             try {
@@ -87,7 +84,7 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_verify) {
-            // TODO: Approve the details
+            // TODO: Approve the details - send post request
         }
     }
 }
