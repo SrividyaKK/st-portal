@@ -1,6 +1,7 @@
 package universe.sk.stportal;
 
 import android.app.DatePickerDialog;
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
@@ -24,20 +25,31 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.GenericArrayType;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class formActivity extends FragmentActivity implements DatePickerDialog.OnDateSetListener, EasyPermissions.PermissionCallbacks, View.OnClickListener {
 
     //File picker
+    private EditText name, educational_inst, loc, email, routes, course, year_of_grad, curr_addr;
+    private TextView DOB;
+
     private Button btnChooseFile, submit;
     private TextView tvItemPath;
     Intent myFileIntent;
@@ -58,6 +70,17 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
+
+        //send details
+        name = findViewById(R.id.name);
+        educational_inst = findViewById(R.id.school);
+        loc = findViewById(R.id.school_loc);
+        email = findViewById(R.id.email);
+        routes = findViewById(R.id.routes);
+        course = findViewById(R.id.course);
+        year_of_grad = findViewById(R.id.Validity_period);
+        curr_addr = findViewById(R.id.destination);
+
 
         btnChooseFile = (Button)findViewById(R.id.btn_choose_file);
         tvItemPath  = (TextView)findViewById(R.id.tv_file_path);
@@ -141,19 +164,37 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
 
     @Override
     public void onClick(View view) {
+        //function in the activity that corresponds to the layout button
+        String username, inst, location;
+        username = name.getText().toString();
+        inst = educational_inst.getText().toString();
+        location = loc.getText().toString();
+        String email_id = email.getText().toString();
+        String route = routes.getText().toString();
+        String coursename = course.getText().toString();
+        String year = year_of_grad.getText().toString();
+        String addr = curr_addr.getText().toString();
+
         JSONObject json = new JSONObject();
         try {
-            json.put("supply", s);
+            json.put("username", username);
+            json.put("institution",inst);
+            json.put("loc", location);
+            json.put("email", email_id);
+            json.put("route", route);
+            json.put("course", coursename);
+            json.put("year", year);
+            json.put("addr", addr);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         Runnable runnable = () -> {
             OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
-            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
+            RequestBody requestBody;
+            requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
             Request request = new Request.Builder()
-                    .url(getResources().getString(R.string.base_api_url) + "/api/camps/c/" + id + "/stock")
+                    .url(getResources().getString(R.string.base_api_url) + "http://priyanga-yfho.localhost.run/")//todo
                     .header("Content-Type", "application/json")
-                    .header("Authorization", "Token " + GlobalStore.token)
                     .post(requestBody)
                     .build();
             try {
@@ -166,7 +207,14 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
         };
         Thread async = new Thread(runnable);
         async.start();
-        supplies.add(s);
-        listAdapter.notifyItemInserted(supplies.size());
+//        supplies.add(username);
+//        supplies.add("supply",inst);
+//        supplies.add("supply", location);
+//        supplies.add("supply", email_id);
+//        supplies.add("supply", route);
+//        supplies.add("supply", coursename);
+//        supplies.add("supply", year);
+//        supplies.add("supply", addr);
+        //listAdapter.notifyItemInserted(supplies.size());
     }
 }

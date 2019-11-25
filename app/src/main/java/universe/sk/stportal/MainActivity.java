@@ -52,9 +52,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             Intent intent = new Intent(this,ScanActivity.class);
             startActivity(intent);
-            Intent intent = new Intent(this, ScanActivity.class);
-            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-            scanIntegrator.initiateScan();
+            //Intent intent = new Intent(this, ScanActivity.class);
+            //IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+            //scanIntegrator.initiateScan();
             //startActivity(intent);
         }
 
