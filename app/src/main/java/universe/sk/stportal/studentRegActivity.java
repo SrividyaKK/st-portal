@@ -40,6 +40,8 @@ public class studentRegActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
+        String pass = passwd.getText().toString();
+        String conf_pass = confirm_passwd.getText().toString();
         if(view.getId() == R.id.login)
         {
             Intent intent = new Intent(this, MainActivity.class);
@@ -48,9 +50,14 @@ public class studentRegActivity extends AppCompatActivity implements View.OnClic
 
         if (view.getId() == R.id.btn_signUp)
         {
-            if (passwd.equals(confirm_passwd))
+            if (!pass.equals(conf_pass))
             {
-                Toast.makeText(this, "Password do not match.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(studentRegActivity.this, "Password do not match.", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Intent intent = new Intent(studentRegActivity.this, formActivity.class);
+                startActivity(intent);
             }
         }
     }
