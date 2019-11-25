@@ -13,7 +13,7 @@ public class ScanActivity extends AppCompatActivity implements View.OnClickListe
     private Button scanBtn;
     private TextView contentText, scanSuccess;
 
-    String fetchedId = "123456";
+    String fetchedId = "800217";
     int idInDB = Integer.parseInt(fetchedId);
 
     @Override
