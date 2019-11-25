@@ -18,4 +18,9 @@
     <string name="email">Email</string>
     <string name="dob">DOB</string>
     <string name="institution_name">Institution name</string>
+    <string name="institution_location">Location of institution</string>
+    <string name="course">Course</string>
+    <string name="current_address">Current Address</string>
+    <string name="year_of_grad">Year of Graduation</string>
+    <string name="tv_hint_name">Name of Student</string>
 </resources>
