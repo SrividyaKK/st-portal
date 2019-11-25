@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class IndividualApplicationActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView tvApplicantName, tvApplicantDOB, tvApplicantInstitution, tvApplicantInstLoc, tvApplicantCourse, tvApplicantYearOfGrad, tvApplicantAddress;
+    private TextView tvApplicantName, tvApplicantDOB, tvApplicantInstitution, tvApplicantInstLoc, tvApplicantCourse, tvApplicantYearOfGrad, tvApplicantAddress,tvApplicantRoutes;
     private Button btnVerify;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
         tvApplicantCourse = findViewById(R.id.tvApplicantCourse);
         tvApplicantYearOfGrad = findViewById(R.id.tvApplicantYearOfGrad);
         tvApplicantAddress = findViewById(R.id.tvApplicantAddress);
+        tvApplicantRoutes = findViewById(R.id.tvApplicantRoutes);
 
         btnVerify = findViewById(R.id.btn_verify);
 
@@ -36,6 +37,7 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
         tvApplicantCourse.setText("");
         tvApplicantYearOfGrad.setText("");
         tvApplicantAddress.setText("");
+        tvApplicantRoutes.setText("");
 
     }
 

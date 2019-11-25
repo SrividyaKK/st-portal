@@ -23,4 +23,5 @@
     <string name="current_address">Current Address</string>
     <string name="year_of_grad">Year of Graduation</string>
     <string name="tv_hint_name">Name of Student</string>
+    <string name="routes">Routes</string>
 </resources>
