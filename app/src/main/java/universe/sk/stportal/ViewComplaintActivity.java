@@ -37,18 +37,23 @@ public class ViewComplaintActivity extends AppCompatActivity {
 
         // TODO: LOAD DATA FROM DB
         Set<String> busNums = new LinkedHashSet<>();
+        Set<String> compCounts = new LinkedHashSet<>();
+        Set<String> compMsgs = new LinkedHashSet<>();
 
-        String name, number;
-        Iterator<String> itrNames = busNums.iterator();
-//        Iterator<String> itrNumbers = contactNumbers.iterator();
-//
-//        complaints.clear();
-//
-//        while (itrNames.hasNext()) {
-//            name = itrNames.next();
-//            number = itrNumbers.next();
-//            contacts.add(new Contact(name, number));
-//        }
+        String bNum, cCount, cMsg;
+        Iterator<String> itrBusNums = busNums.iterator();
+        Iterator<String> itrCompCounts = compCounts.iterator();
+        Iterator<String> itrCompMsgs = compMsgs.iterator();
+
+        complaints.clear();
+
+        while (itrBusNums.hasNext()) {
+            bNum = itrBusNums.next();
+            cCount = itrCompCounts.next();
+            cMsg = itrCompMsgs.next();
+            complaints.add(new Complaint(bNum, cCount, cMsg));
+        }
+
         adapter.notifyDataSetChanged();
     }
 }
