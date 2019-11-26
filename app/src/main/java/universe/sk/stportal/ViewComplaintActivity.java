@@ -45,7 +45,7 @@ public class ViewComplaintActivity extends AppCompatActivity {
         // TODO: LOAD DATA FROM DB
         Runnable runnable = () -> {
             OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
-            Request request = new Request.Builder().url(R.string.base_api_url + "/").header("Content-Type", "application/json").build();
+            Request request = new Request.Builder().url(R.string.base_api_url + "/complaint").header("Content-Type", "application/json").build();
 
             try {
                 Response response = client.newCall(request).execute();
