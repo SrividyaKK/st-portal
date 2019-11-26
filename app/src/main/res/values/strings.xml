@@ -37,6 +37,9 @@
     <string name="tv_hint_name">Name of Student</string>
     <string name="routes">Routes</string>
 
+    <string name="submit">Submit</string>
+    <string name="hint_enter_complaint_message">Enter Complaint Message</string>
+
     <string name="hint_bus_num">Bus number</string>
     <string name="hint_bus_complaint_date">Complaint Date</string>
     <string name="hint_complaint_msg">Complaint Message</string>
