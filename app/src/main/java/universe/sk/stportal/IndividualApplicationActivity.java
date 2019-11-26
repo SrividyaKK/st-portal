@@ -49,13 +49,13 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
 
         btnVerify.setOnClickListener(this);
 
-        // TODO: FETCH FROM DB
-//        JSONObject json = new JSONObject();
-//        try {
-//            json.put("admno", id);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
+        TODO: FETCH FROM DB
+       JSONObject json = new JSONObject();
+       try {
+           json.put("admno", id);
+       } catch (JSONException e) {
+         e.printStackTrace();
+       }
 
         Runnable runnable = () -> {
             OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
