@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,30 +49,24 @@ public class ViewComplaintActivity extends AppCompatActivity {
 
             try {
                 Response response = client.newCall(request).execute();
-                JSONObject res = new JSONObject(response.body().string());
-                System.out.println("res: " + res);
+                JSONArray json_arr = new JSONArray(response.body().string());
+                String bNum, cDate, cMsg;
+                complaints.clear();
+
+                for (int i=0; i<json_arr.length(); i++) {
+                    JSONObject res = json_arr.getJSONObject(i);
+                    bNum = res.getString("busNumber");
+                    cDate = res.getString("complaint_date");
+                    cMsg = res.getString("message");
+                    complaints.add(new Complaint(bNum, cDate, cMsg));
+                }
+                adapter.notifyDataSetChanged();
             } catch (JSONException | IOException e) {
                 e.printStackTrace();
             }
         };
-        Set<String> busNums = new LinkedHashSet<>();
-        Set<String> compDates = new LinkedHashSet<>();
-        Set<String> compMsgs = new LinkedHashSet<>();
 
-        String bNum, cDate, cMsg;
-        Iterator<String> itrBusNums = busNums.iterator();
-        Iterator<String> itrCompDates = compDates.iterator();
-        Iterator<String> itrCompMsgs = compMsgs.iterator();
-
-        complaints.clear();
-
-        while (itrBusNums.hasNext()) {
-            bNum = itrBusNums.next();
-            cDate = itrCompDates.next();
-            cMsg = itrCompMsgs.next();
-            complaints.add(new Complaint(bNum, cDate, cMsg));
-        }
-
-        adapter.notifyDataSetChanged();
+        Thread async = new Thread(runnable);
+        async.start();
     }
 }

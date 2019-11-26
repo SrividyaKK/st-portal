@@ -44,7 +44,7 @@
     <string name="hint_bus_complaint_date">Complaint Date</string>
     <string name="hint_complaint_msg">Complaint Message</string>
     <string name="complaints">Complaints</string>
-    <string name="base_api_url">https://jsonplaceholder.typicode.com/todos</string>
-    <!--    <string name="base_api_url">http://priyanga-yfho.localhost.run</string>-->
+<!--    <string name="base_api_url">https://jsonplaceholder.typicode.com/todos</string>-->
+        <string name="base_api_url">http://priyanga-yfho.localhost.run</string>
     <string name="hint_id">ID of student</string>
 </resources>

@@ -49,7 +49,7 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
 
         btnVerify.setOnClickListener(this);
 
-        TODO: FETCH FROM DB
+        //TODO: FETCH FROM DB
        JSONObject json = new JSONObject();
        try {
            json.put("admno", id);
