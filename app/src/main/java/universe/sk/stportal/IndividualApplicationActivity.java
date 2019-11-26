@@ -3,13 +3,10 @@ package universe.sk.stportal;
 import androidx.appcompat.app.AppCompatActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,12 +50,12 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
         btnVerify.setOnClickListener(this);
 
         // TODO: FETCH FROM DB
-        JSONObject json = new JSONObject();
-        try {
-            json.put("admno", id);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        JSONObject json = new JSONObject();
+//        try {
+//            json.put("admno", id);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
         Runnable runnable = () -> {
             OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
