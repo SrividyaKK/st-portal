@@ -46,17 +46,21 @@ public class ViewComplaintActivity extends AppCompatActivity {
         // TODO: LOAD DATA FROM DB
         Runnable runnable = () -> {
             OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
-            Request request = new Request.Builder().url(R.string.base_api_url + "/complaint").header("Content-Type", "application/json").build();
+            Request request = new Request.Builder().url(getResources().getString(R.string.base_api_url) + "/complaint").header("Content-Type", "application/json").build();
 
             try {
+                System.out.println("in the try block");
                 Response response = client.newCall(request).execute();
                 JSONArray json_arr = new JSONArray(response.body().string());
+                System.out.println("json_arr: " + json_arr);
                 String bNum, cDate, cMsg;
                 complaints.clear();
 
                 for (int i=0; i<json_arr.length(); i++) {
                     JSONObject res = json_arr.getJSONObject(i);
+                    System.out.println("res: " + res);
                     bNum = res.getString("busNumber");
+                    System.out.println("Bus num: " + bNum);
                     cDate = res.getString("complaint_date");
                     cMsg = res.getString("message");
                     complaints.add(new Complaint(bNum, cDate, cMsg));
