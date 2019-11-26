@@ -52,7 +52,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class formActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, EasyPermissions.PermissionCallbacks, View.OnClickListener {
 
     //File picker
-    private EditText name, educational_inst, loc, email, routes, course, year_of_grad, curr_addr;
+    private EditText name, educational_inst, admno, loc, email, routes, course, year_of_grad, curr_addr;
     private TextView DOB;
 
     private Button btnChooseFile, submit;
@@ -108,6 +108,7 @@ public class formActivity extends AppCompatActivity implements DatePickerDialog.
         course = findViewById(R.id.course);
         year_of_grad = findViewById(R.id.Validity_period);
         curr_addr = findViewById(R.id.destination);
+        admno = findViewById(R.id.admno);
 
 
         btnChooseFile = (Button)findViewById(R.id.btn_choose_file);
@@ -204,19 +205,21 @@ public class formActivity extends AppCompatActivity implements DatePickerDialog.
         String coursename = course.getText().toString();
         String year = year_of_grad.getText().toString();
         String addr = curr_addr.getText().toString();
+        String code = admno.getText().toString();
 
         JSONObject json = new JSONObject();
         if(view.getId() == R.id.submit) {
             //Toast.makeText(formActivity.this, "Reached here!", Toast.LENGTH_SHORT).show();
             try {
-                json.put("username", username);
                 json.put("institution", inst);
+                json.put("username", username);
                 json.put("loc", location);
                 json.put("email", email_id);
                 json.put("route", route);
                 json.put("course", coursename);
                 json.put("year", year);
-                json.put("addr", addr);
+                json.put("address", addr);
+                json.put("code", code);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -225,7 +228,7 @@ public class formActivity extends AppCompatActivity implements DatePickerDialog.
                 RequestBody requestBody;
                 requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
                 Request request = new Request.Builder()
-                        .url(getResources().getString(R.string.base_api_url) + "http://priyanga-yfho.localhost.run/")//todo
+                        .url(getResources().getString(R.string.base_api_url) + "/students/")//todo
                         .header("Content-Type", "application/json")
                         .post(requestBody)
                         .build();

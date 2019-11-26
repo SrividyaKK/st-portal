@@ -36,18 +36,20 @@ public class ComplaintAdapter extends ArrayAdapter<Complaint> {
         Complaint complaint = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
-        final View result;
+        View result = convertView;
 
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            LayoutInflater inflater = LayoutInflater.from(getContext());
+            LayoutInflater inflater = LayoutInflater.from(context);
             convertView = inflater.inflate(R.layout.row_complaint, parent, false);
+            System.out.println("convert view inflater1");
             viewHolder.busNum = convertView.findViewById(R.id.tvBusNumber);
             viewHolder.compDate = convertView.findViewById(R.id.tvCompDate);
             viewHolder.compMsg = convertView.findViewById(R.id.tvCompMsg);
 
             result = convertView;
             convertView.setTag(viewHolder);
+            System.out.println("convert view inflater2");
         }
         else {
             viewHolder = (ViewHolder) convertView.getTag();

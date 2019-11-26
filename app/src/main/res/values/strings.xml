@@ -24,6 +24,7 @@
     <string name="hint_status">Status</string>
     <string name="hint_success_failure">Success/Failure</string>
     <string name="failure">Oops! You have not registered for an ST card</string>
+    <string name="download">Download</string>
 
     <string name="hint_name">Name</string>
     <string name="admno">Admission No.</string>
@@ -38,13 +39,14 @@
     <string name="routes">Routes</string>
 
     <string name="submit">Submit</string>
+    <string name="forms">FORMS</string>
     <string name="hint_enter_complaint_message">Enter Complaint Message</string>
 
     <string name="hint_bus_num">Bus number</string>
     <string name="hint_bus_complaint_date">Complaint Date</string>
     <string name="hint_complaint_msg">Complaint Message</string>
     <string name="complaints">Complaints</string>
-    <!--    <string name="base_api_url">https://jsonplaceholder.typicode.com/todos</string>-->
-    <string name="base_api_url">http://priyanga-kvdh.localhost.run</string>
+<!--        <string name="base_api_url">https://jsonplaceholder.typicode.com/todos</string>-->
+    <string name="base_api_url">http://priyanga-o75f.localhost.run</string>
     <string name="hint_id">ID of student</string>
 </resources>

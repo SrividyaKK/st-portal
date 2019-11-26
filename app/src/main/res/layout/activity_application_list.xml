@@ -14,11 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="FORMS"
+        android:text="@string/forms"
         android:gravity="center"
         android:textSize="30sp"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/purple_complement"
         />
     <ListView
         android:id="@+id/lvFormList"

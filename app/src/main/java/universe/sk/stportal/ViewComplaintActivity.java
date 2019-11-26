@@ -22,8 +22,8 @@ import okhttp3.Response;
 
 public class ViewComplaintActivity extends AppCompatActivity {
     ListView lvCompList;
-    ArrayList<Complaint> complaints = new ArrayList<>();
-    private ComplaintAdapter adapter;
+    public ArrayList<Complaint> complaints = new ArrayList<>();
+    ComplaintAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,8 @@ public class ViewComplaintActivity extends AppCompatActivity {
                 JSONArray json_arr = new JSONArray(response.body().string());
                 System.out.println("json_arr: " + json_arr);
                 String bNum, cDate, cMsg;
-                complaints.clear();
+//                complaints.clear();
+                complaints.add(new Complaint("kl1234", "23-10-2019", "hello"));
 
                 for (int i=0; i<json_arr.length(); i++) {
                     JSONObject res = json_arr.getJSONObject(i);
@@ -63,15 +64,18 @@ public class ViewComplaintActivity extends AppCompatActivity {
                     System.out.println("Bus num: " + bNum);
                     cDate = res.getString("complaint_date");
                     cMsg = res.getString("message");
-                    complaints.add(new Complaint(bNum, cDate, cMsg));
+                    complaints.add(i, new Complaint(bNum, cDate, cMsg));
+                    System.out.println("Complaints: " + complaints);
                 }
-                adapter.notifyDataSetChanged();
-            } catch (JSONException | IOException e) {
+//                adapter.notifyItemInserted(complaints.size());
+            } catch (JSONException | IOException
+                    e) {
                 e.printStackTrace();
             }
         };
 
         Thread async = new Thread(runnable);
         async.start();
+        adapter.notifyDataSetChanged();
     }
 }

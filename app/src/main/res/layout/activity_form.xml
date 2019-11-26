@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:background="@drawable/et_bg"
-        android:hint="Name"
+        android:hint="@string/hint_name"
         android:inputType="text"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
@@ -82,6 +82,21 @@
             app:layout_constraintStart_toStartOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@id/name" />
 
+
+        <EditText
+            android:id="@+id/admno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="@string/admno"
+            android:inputType="number"
+            android:padding="16dp"
+            android:textColorHint="@color/login_form_details"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/school" />
+
         <EditText
             android:id="@+id/school_loc"
             android:layout_width="0dp"
@@ -94,7 +109,7 @@
             android:textColorHint="@color/login_form_details"
             app:layout_constraintEnd_toStartOf="@id/guideline_right"
             app:layout_constraintStart_toStartOf="@id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@id/school" />
+            app:layout_constraintTop_toBottomOf="@id/admno" />
 
         <EditText
             android:id="@+id/course"
