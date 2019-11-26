@@ -2,6 +2,7 @@ package universe.sk.stportal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -28,7 +29,7 @@ public class ViewComplaintActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_complaint);
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_blue)));
         lvCompList = findViewById(R.id.lvCompList);
 
         Set<String> busNums = new LinkedHashSet<>();

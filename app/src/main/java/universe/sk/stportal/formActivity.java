@@ -3,6 +3,7 @@ package universe.sk.stportal;
 import android.app.DatePickerDialog;
 import android.app.DownloadManager;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,9 @@ import androidx.fragment.app.FragmentActivity;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -45,7 +49,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import pub.devrel.easypermissions.EasyPermissions;
 
-public class formActivity extends FragmentActivity implements DatePickerDialog.OnDateSetListener, EasyPermissions.PermissionCallbacks, View.OnClickListener {
+public class formActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, EasyPermissions.PermissionCallbacks, View.OnClickListener {
 
     //File picker
     private EditText name, educational_inst, loc, email, routes, course, year_of_grad, curr_addr;
@@ -67,10 +71,33 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
     private TextView login;
     private View rootView;
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.complaint_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()){
+            case R.id.item1:
+                intent = new Intent(formActivity.this, FileComplaintActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_blue)));
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         //send details
         name = findViewById(R.id.name);
@@ -88,6 +115,7 @@ public class formActivity extends FragmentActivity implements DatePickerDialog.O
         ivGallery = (ImageView)findViewById(R.id.imageview);
         submit = (Button)findViewById(R.id.submit);
         final TextView date = (TextView) findViewById(R.id.DOB);
+
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

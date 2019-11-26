@@ -33,8 +33,7 @@
         <activity
             android:name=".formActivity"
             android:label="@string/title_activity_signup"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".studentRegActivity"
             android:label="@string/title_activity_student_reg"

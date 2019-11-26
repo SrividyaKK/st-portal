@@ -49,7 +49,7 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
 
         btnVerify.setOnClickListener(this);
 
-        //TODO: FETCH FROM DB
+       // TODO: FETCH FROM DB
        JSONObject json = new JSONObject();
        try {
            json.put("admno", id);
@@ -70,10 +70,10 @@ public class IndividualApplicationActivity extends AppCompatActivity implements 
 
                 String appName = res.getString("firstName") + res.getString("lastName");
                 String imgUrl = res.getString(res.getString("image"));
-                Picasso.get()
-                        .load(imgUrl).fit().centerCrop()
-                        .placeholder(R.drawable.profile_pic_default)
-                        .into(ivIndAppProfilePic);
+                //Picasso.get()
+                     //   .load(imgUrl).fit().centerCrop()
+                     //   .placeholder(R.drawable.profile_pic_default)
+                   //     .into(ivIndAppProfilePic);
 
                 tvApplicantName.setText(appName);
                 tvApplicantDOB.setText(res.getString("dob"));
