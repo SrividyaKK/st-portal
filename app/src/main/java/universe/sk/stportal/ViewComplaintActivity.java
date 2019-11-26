@@ -5,10 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class ViewComplaintActivity extends AppCompatActivity {
     ListView lvCompList;
@@ -23,7 +31,7 @@ public class ViewComplaintActivity extends AppCompatActivity {
         lvCompList = findViewById(R.id.lvCompList);
 
         Set<String> busNums = new LinkedHashSet<>();
-        Set<String> compCounts = new LinkedHashSet<>();
+        Set<String> compDates = new LinkedHashSet<>();
         Set<String> compMsgs = new LinkedHashSet<>();
 
         adapter = new ComplaintAdapter(complaints, getApplicationContext());
@@ -33,25 +41,35 @@ public class ViewComplaintActivity extends AppCompatActivity {
     }
 
     public void loadData() {
-        // read the contacts from sharedPreferences
-
         // TODO: LOAD DATA FROM DB
+        Runnable runnable = () -> {
+            OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
+            Request request = new Request.Builder().url(R.string.base_api_url + "/").header("Content-Type", "application/json").build();
+
+            try {
+                Response response = client.newCall(request).execute();
+                JSONObject res = new JSONObject(response.body().string());
+                System.out.println("res: " + res);
+            } catch (JSONException | IOException e) {
+                e.printStackTrace();
+            }
+        };
         Set<String> busNums = new LinkedHashSet<>();
-        Set<String> compCounts = new LinkedHashSet<>();
+        Set<String> compDates = new LinkedHashSet<>();
         Set<String> compMsgs = new LinkedHashSet<>();
 
-        String bNum, cCount, cMsg;
+        String bNum, cDate, cMsg;
         Iterator<String> itrBusNums = busNums.iterator();
-        Iterator<String> itrCompCounts = compCounts.iterator();
+        Iterator<String> itrCompDates = compDates.iterator();
         Iterator<String> itrCompMsgs = compMsgs.iterator();
 
         complaints.clear();
 
         while (itrBusNums.hasNext()) {
             bNum = itrBusNums.next();
-            cCount = itrCompCounts.next();
+            cDate = itrCompDates.next();
             cMsg = itrCompMsgs.next();
-            complaints.add(new Complaint(bNum, cCount, cMsg));
+            complaints.add(new Complaint(bNum, cDate, cMsg));
         }
 
         adapter.notifyDataSetChanged();

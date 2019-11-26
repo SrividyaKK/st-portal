@@ -27,7 +27,7 @@
                     android:gravity="start"
                     android:textSize="20sp"
                     android:textColor="@color/black"
-                    android:hint="Admission number" />
+                    android:hint="@string/admno" />
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="0dp"
@@ -42,7 +42,7 @@
                 android:id="@+id/tvStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Status"
+                android:hint="@string/hint_status"
                 />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

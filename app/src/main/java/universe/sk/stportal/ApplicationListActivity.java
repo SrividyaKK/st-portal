@@ -45,7 +45,6 @@ public class ApplicationListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application_list);
 
-
         lvFormList = findViewById(R.id.lvFormList);
 
         Set<String> AdminNum = new LinkedHashSet<>();
@@ -60,7 +59,6 @@ public class ApplicationListActivity extends AppCompatActivity {
 
     }
     public void loadData() {
-
         // TODO: FETCH DATA FROM DB
         Set<String> adminNum = new LinkedHashSet<>();
         Set<String> name = new LinkedHashSet<>();
