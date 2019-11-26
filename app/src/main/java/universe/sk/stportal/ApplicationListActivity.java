@@ -46,7 +46,7 @@ public class ApplicationListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application_list);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_blue)));
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         lvFormList = findViewById(R.id.lvFormList);
 
