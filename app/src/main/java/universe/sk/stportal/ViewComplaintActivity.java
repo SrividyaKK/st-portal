@@ -33,8 +33,6 @@ public class ViewComplaintActivity extends AppCompatActivity {
     }
 
     public void loadData() {
-        // read the contacts from sharedPreferences
-
         // TODO: LOAD DATA FROM DB
         Set<String> busNums = new LinkedHashSet<>();
         Set<String> compCounts = new LinkedHashSet<>();
