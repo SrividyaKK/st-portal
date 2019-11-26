@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ViewApplicationStatusActivity"></activity>
-        <activity android:name=".FileComplaintActivity" />
+        <activity android:name=".FileComplaintActivity" android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ApplicationListActivity" />
         <activity android:name=".ViewComplaintActivity" />
         <activity android:name=".IndividualApplicationActivity" />

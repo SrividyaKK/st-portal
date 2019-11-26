@@ -209,10 +209,10 @@ public class formActivity extends AppCompatActivity implements DatePickerDialog.
 
         JSONObject json = new JSONObject();
         if(view.getId() == R.id.submit) {
-            //Toast.makeText(formActivity.this, "Reached here!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(formActivity.this, "Successfully submitted!", Toast.LENGTH_SHORT).show();
             try {
                 json.put("institution", inst);
-                json.put("username", username);
+                json.put("firstName", username);
                 json.put("loc", location);
                 json.put("email", email_id);
                 json.put("route", route);
@@ -227,8 +227,9 @@ public class formActivity extends AppCompatActivity implements DatePickerDialog.
                 OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).build();
                 RequestBody requestBody;
                 requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json.toString());
+                System.out.println("req: " + json.toString());
                 Request request = new Request.Builder()
-                        .url(getResources().getString(R.string.base_api_url) + "/students/")//todo
+                        .url(getResources().getString(R.string.base_api_url) + "/students/")
                         .header("Content-Type", "application/json")
                         .post(requestBody)
                         .build();

@@ -7,6 +7,7 @@
     android:layout_marginBottom="5dp">
     <androidx.cardview.widget.CardView
         android:id="@+id/cvComplaint"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
