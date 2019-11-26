@@ -47,6 +47,7 @@ public class ApplicationListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_application_list);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_blue)));
 
+
         lvFormList = findViewById(R.id.lvFormList);
 
         Set<String> AdminNum = new LinkedHashSet<>();
@@ -61,7 +62,6 @@ public class ApplicationListActivity extends AppCompatActivity {
 
     }
     public void loadData() {
-
         // TODO: FETCH DATA FROM DB
         Set<String> adminNum = new LinkedHashSet<>();
         Set<String> name = new LinkedHashSet<>();

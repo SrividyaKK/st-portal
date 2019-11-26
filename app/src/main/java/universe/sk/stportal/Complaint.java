@@ -1,11 +1,11 @@
 package universe.sk.stportal;
 
 public class Complaint {
-    private String busNum, compCount, compMsg;
+    private String busNum, compDate, compMsg;
 
-    public Complaint(String busNum, String compCount, String compMsg) {
+    public Complaint(String busNum, String compDate, String compMsg) {
         this.busNum = busNum;
-        this.compCount = compCount;
+        this.compDate = compDate;
         this.compMsg = compMsg;
     }
 
@@ -16,11 +16,11 @@ public class Complaint {
         this.busNum = busNum;
     }
 
-    public String getCompCount() {
-        return compCount;
+    public String getCompDate() {
+        return compDate;
     }
-    public void setCompCount(String compCount) {
-        this.compCount = compCount;
+    public void setCompDate(String compDate) {
+        this.compDate = compDate;
     }
 
     public String getCompMsg() {

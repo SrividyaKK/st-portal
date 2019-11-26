@@ -18,7 +18,7 @@ public class ComplaintAdapter extends ArrayAdapter<Complaint> {
 
     // View lookup cache
     private static class ViewHolder {
-        TextView busNum, compCount, compMsg;
+        TextView busNum, compDate, compMsg;
     }
 
     public ComplaintAdapter(ArrayList<Complaint> data, Context context) {
@@ -43,7 +43,7 @@ public class ComplaintAdapter extends ArrayAdapter<Complaint> {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row_complaint, parent, false);
             viewHolder.busNum = convertView.findViewById(R.id.tvBusNumber);
-            viewHolder.compCount = convertView.findViewById(R.id.tvCompCount);
+            viewHolder.compDate = convertView.findViewById(R.id.tvCompDate);
             viewHolder.compMsg = convertView.findViewById(R.id.tvCompMsg);
 
             result = convertView;
@@ -55,7 +55,7 @@ public class ComplaintAdapter extends ArrayAdapter<Complaint> {
         }
 
         viewHolder.busNum.setText(complaint.getBusNum());
-        viewHolder.compCount.setText(complaint.getCompCount());
+        viewHolder.compDate.setText(complaint.getCompDate());
         viewHolder.compMsg.setText(complaint.getCompMsg());
 
         return convertView; //return the completed view to render on screen
